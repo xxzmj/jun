@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>键盘起始页</title>
+ <style>
+  *{
+   margin:0;
+   padding:0;
+  }
+  body{
+   width:100%;
+   height:100vh;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   background-image:url("https://s1.ax1x.com/2023/08/06/pPAIcfe.png");
+   background-size:cover;
+   background-position:center;
+   background-repeat:no-repeat;
+  }
+  .keybard{
+   display:grid;
+   grid-template-columns:repeat(21,50px);
+   grid-template-rows:repeat(3,100px);
+   gap:7px;
+   width:1120px;
+   height:330px;
+   background-color:rgb(165,180,184,0.2);
+
+   padding:40px;
+   border-radius:20px;
+  }
+  .key{
+   grid-column:span 2;
+   background-color:rgba(233, 233, 233, 0.4);
+   line-height:100px;
+   text-align:center;
+   font-size:20px;
+   font-weight:bolder;
+   color:#fff;
+   border:1px solid black;
+   border-radius:20px;
+   box-shadow:0 0 5px rgb(165,180,184,0.7);
+   transform: translateY(0);
+   transition: transform 0.5s;
+  }
+  .kgj1{
+   grid-column:span 1;
+  }
+  .kgj2{
+   grid-column:span 2;
+  }
+  .key:hover{
+   border-color:white;
+   transform: translateY(-5px);
+   cursor:pointer;
+  }
+  #clock{
+   width:400px;
+   margin:0 auto;
+   font-size:65px;
+   color:#fff;
+   font-weight:bolder;
+   padding:15px;
+   text-align:center;
+   font-family:"宋体";
+   border:2px solid #ccc;
+   border-radius:15px;
+   display:flex;
+   justify-content:space-around;
+   position:relative;
+   top:-120px;
+  }
+  .box{
+   position:absolute;
+  }
+  .title{
+   width:400px;
+   font-size:22px;
+   font-weight:weight;
+   color:#fff;
+   font-family:"宋体";
+   margin:0 auto;
+   padding:13px;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   position:relative;
+   top:-50px;
+  }
+ </style>
+</head>
+<body>
+ <div class="box">
+  <div id="clock">
+   <div class="date"></div>
+   <div class="maoHao">:</div>
+   <div class="date"></div>
+   <div class="maoHao">:</div>
+   <div class="date"></div>
+  </div>
+  <div class="title">本次的灵感来自于我的一个键盘</div>
+  <div class="keybard">
+  <div class="key">哔哩哔哩</div>
+  <div class="key">虎牙直播</div>
+  <div class="key">知乎</div>
+  <div class="key">元岛社区</div>
+  <div class="key">元岛图床</div>
+  <div class="key">快手直播</div>
+  <div class="key">爱淘宝</div>
+  <div class="key">超星学习通</div>
+  <div class="key">o</div>
+  <div class="key">p</div>
+  <div class="kgj1"></div>
+  <div class="kgj1"></div>
+  <div class="key">a</div>
+  <div class="key">s</div>
+  <div class="key">d</div>
+  <div class="key">f</div>
+  <div class="key">g</div>
+  <div class="key">h</div>
+  <div class="key">j</div>
+  <div class="key">k</div>
+  <div class="key">l</div>
+  <div class="kgj1"></div>
+  <div class="kgj2"></div>
+  <div class="key">z</div>
+  <div class="key">x</div>
+  <div class="key">c</div>
+  <div class="key">v</div>
+  <div class="key">b</div>
+  <div class="key">n</div>
+  <div class="key">m</div>
+ </div>
+
+
+
+ <script>
+  let dom=document.querySelectorAll(".date");
+  function update(){
+   let date=new Date();
+   let hours=gengXing(date.getHours());
+   let minutes=gengXing(date.getMinutes());
+   let seconds=gengXing(date.getSeconds());
+
+   dom[0].innerHTML=hours;
+   dom[1].innerHTML=minutes;
+   dom[2].innerHTML=seconds;
+   setTimeout(update,1000);
+  };
+
+  function gengXing(num){
+   return num<10? "0"+num:num;
+  };
+
+  let luYou=document.querySelectorAll(".key");
+  // for(let i=0;i<26;i++){
+  //  luYou[i].onclick=function(){
+  //   window.location.href="https://www.bilibili.com/";
+  //  }
+  // }
+  for(let i=0;i<luYou.length;i++){
+   let value=luYou[i];
+   switch(i){
+    case 0:
+     value.onclick=function(){
+      window.location.href="https://www.bilibili.com/";
+     };
+     break;
+    case 1:
+     value.onclick=function(){
+      window.location.href="https://www.huya.com/";
+     };
+     break;
+    case 2:
+     value.onclick=function(){
+      window.location.href="https://www.zhihu.com/signin?next=%2F";
+     };
+     break;
+    case 3:
+     value.onclick=function(){
+      window.location.href="https://metaisland.feishu.cn/mindnotes/bmncnVm87LbPlQF0jigDuSegubd#mindmap";
+     };
+     break;
+    case 4:
+     value.onclick=function(){
+      window.location.href="https://www.midorg.com/h.html";
+     };
+     break;
+    case 5:
+     value.onclick=function(){
+      window.location.href="https://live.kuaishou.com/";
+     };
+     break;
+    case 6:
+     value.onclick=function(){
+      window.location.href="https://ai.taobao.com/?pid=mm_50570328_39070332_145428725";
+     };
+     break;
+    case 7:
+     value.onclick=function(){
+      window.location.href="http://www.chaoxing.com/";
+     };
+     break;
+
+    default:
+     break;
+   }
+  }
+  
+
+  update();
+ </script>
+</body>
+</html>
